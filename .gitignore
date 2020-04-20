@@ -860,3 +860,4 @@ env/Scripts/pip3.8.exe
 env/Scripts/pip3.exe
 env/Scripts/python.exe
 env/Scripts/pythonw.exe
+Flask_App/__pycache__/__init__.cpython-38.pyc
