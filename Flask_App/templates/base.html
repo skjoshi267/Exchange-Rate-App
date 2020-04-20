@@ -1,5 +1,10 @@
 {% extends 'bootstrap/base.html' %}
 
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('.static', filename='css/main.css')}}"></link>
+{% endblock %}
+
 {% block title %}Exchange Rate App{% endblock %}
 
 {% block navbar %}
@@ -16,7 +21,7 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="/">Home</a></li>
+                    <li><a href="/register">Register</a></li>
                     <li><a href="/about_us">About Us</a></li>
                 </ul>
             </div>
