@@ -10,7 +10,11 @@
         </div>
         <div class="form-group">
             <label for="username">{{ form.username.label }}</label>
+            {% if form.username.data == None %}
             <input type=username class="form-control" id="username" name="username" placeholder="Enter Username">
+            {% else %}
+            <input type=username class="form-control" id="username" name="username" value="{{ form.username.data }}" placeholder="Enter Username">            
+            {% endif %}
             <p>
                 {% for error in form.username.errors %}
                     <span style="color: red;">[{{ error }}]</span>
@@ -19,7 +23,11 @@
         </div>
         <div class="form-group">
             <label for="email">{{ form.email.label }}</label>
+            {% if form.email.data == None %}
             <input type=email class="form-control" id="email" name="email" placeholder="Enter Email Id">
+            {% else %}
+            <input type=email class="form-control" id="email" name="email" value="{{ form.email.data }}" placeholder="Enter Email Id">
+            {% endif %}
             <p>
                 {% for error in form.email.errors %}
                 <span style="color: red;">[{{ error }}]</span>
