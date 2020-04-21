@@ -21,8 +21,8 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="/register">Register</a></li>
-                    <li><a href="/about_us">About Us</a></li>
+                    <li><a href="{{ url_for('register') }}">Register</a></li>
+                    <li><a href="{{ url_for('about_us') }}">About Us</a></li>
                 </ul>
             </div>
         </div>
@@ -31,6 +31,19 @@
 
 {% block content %}
 <div class="container">
+    <hr>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
     <h1>Hello, {{ user.user }}!</h1>
 </div>
+
+{% block app_content %}{% endblock %}
+
 {% endblock %}
