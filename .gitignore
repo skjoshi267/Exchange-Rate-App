@@ -2122,3 +2122,4 @@ env/Lib/site-packages/psycopg2-2.8.5.dist-info/top_level.txt
 env/Lib/site-packages/psycopg2-2.8.5.dist-info/WHEEL
 migrations/__pycache__/env.cpython-38.pyc
 migrations/versions/__pycache__/cc2d39034915_.cpython-38.pyc
+migrations/versions/__pycache__/5cbe1ed23c93_.cpython-38.pyc

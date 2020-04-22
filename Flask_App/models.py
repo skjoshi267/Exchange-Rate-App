@@ -14,7 +14,7 @@ class Users(database.Model):
                       index=True,
                       unique=True,
                       nullable=False)
-    password = database.Column(database.String(10),
+    password = database.Column(database.String(128),
                       index=False,
                       nullable=False)
 
