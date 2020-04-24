@@ -1,1 +1,1 @@
-web: gunicorn wsgi:exchange_rate
+web: gunicorn exchange_rate:exchng_rate_app
