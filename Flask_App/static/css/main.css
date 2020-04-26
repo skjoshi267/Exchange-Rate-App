@@ -14,21 +14,6 @@
     font-family: 'Courier New', Courier, monospace;
   }
 
-  /* .btn{
-    width: 175px !important;
-    height: 175px !important;
-    font-size: 13 px;
-  } */
-
-  /* .btn-warning{
-    float: left;
-    margin-left: 25%;
-  }
-
-  .btn-primary{
-    margin-left: 20px;
-  } */
-
-  /* .index-div-btns{
-    width: 70%;
-  } */
+#powerbi-info{
+  display: none;
+}
