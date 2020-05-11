@@ -2197,3 +2197,5 @@ env/Lib/site-packages/gunicorn-20.0.4.dist-info/RECORD
 env/Lib/site-packages/gunicorn-20.0.4.dist-info/top_level.txt
 env/Lib/site-packages/gunicorn-20.0.4.dist-info/WHEEL
 env/Scripts/gunicorn.exe
+migrations/versions/__pycache__/da5e244e3790_.cpython-38.pyc
+migrations/versions/__pycache__/f9a98d49a26c_.cpython-38.pyc

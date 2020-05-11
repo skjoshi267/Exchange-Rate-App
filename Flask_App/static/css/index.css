@@ -1,0 +1,52 @@
+.index-h2{
+    border-style: dotted;
+    text-align: center;
+    border-radius: 5%;
+    border-color: cadetblue;
+    width: 70%;
+    font-family: 'Courier New', Courier, monospace;
+  }
+
+#powerbi-info{
+  display: none;
+}
+
+#exchange-info{
+  border-style: dotted;
+  border-radius: 2%;
+  border-color: cadetblue;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  width: 70%;
+}
+
+.custom-select{
+  width: auto;
+  padding-left: 5px;
+  margin-left: 10px;
+}
+
+.legend{
+  text-align: center;
+  margin-top: 5px;
+}
+
+.err_base, .err_der{
+  margin-left: 10px;
+}
+
+.btn#update{
+  margin-left: 10px;
+}
+
+.form-group#div_from_curr{
+  display: inline-block;
+}
+
+.form-group#div_to_curr, .form-group#div_base_date, .form-group#div_end_date{
+  display: inline-block;
+  margin-left: 30px;
+}
+
+label#base-date, label#end-date{
+  margin-bottom: 0px;
+}

@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('.static', filename='css/index.css')}}"></link>
+{% endblock %}
+
 {% block app_content %}
 <div class="container">
     <h2 class="index-h2">
@@ -11,7 +16,74 @@
     <br>
     <br>
     <div class="alert alert-info" id="powerbi-info">
-        &feature is not available in this release.
+        This feature is not available in this release.
     </div>
+    <br>
+    <div id=exchange-info>
+    <form action="" method="post" novalidate>
+    <fieldset>
+        <legend class="legend">Update Exchange Rate</legend>
+    {{ form.hidden_tag() }}
+    <div class="form-group" id="div_from_curr">
+        <label for="from_curr" class="err_base">Base Currency</label><br>
+        <select id ="from_curr" class="custom-select" name="from_curr">
+            {% for currency in form.from_curr.choices %}
+            {% if currency[1] == form.from_curr.data %}
+            <option value="{{ currency[1] }}" selected>
+            {{ currency[0] }}
+            </option>
+            {% else %}
+            <option value="{{ currency[1] }}">
+            {{ currency[0] }}
+            </option>
+            {% endif %}
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-group" id="div_to_curr">
+        <label for="to_curr" class="err_der">Derived Currency</label><br>
+        <select class="custom-select" name="to_curr">
+            {% for currency in form.to_curr.choices %}
+            {% if currency[1] == form.to_curr.data %}
+            <option value="{{ currency[1] }}" selected>
+            {{ currency[0] }}
+            </option>
+            {% else %}
+            <option value="{{ currency[1] }}">
+            {{ currency[0] }}
+            </option>
+            {% endif %}
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-group" id="div_base_date">
+        <label for="base-date" id="base-date">{{ form.baseline_date.label }}</label><br>
+        <input id="baseline-date" name="baseline_date" type="date">
+    </div>
+    <div class="form-group" id="div_end_date"> 
+        <label for="end-date" id="end-date">{{ form.end_date.label }}</label><br>
+        <input id="enddate" name="end_date" type="date">
+    </div>
+    <br>
+    <div class="form-group">
+        <p>
+            {% for error in form.to_curr.errors %}
+                <span class="err_der" style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {% for error in form.baseline_date.errors %}
+                <span class="err_base" style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {% for error in form.end_date.errors %}
+                <span class="err_der" style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <button type="submit" class="btn btn-success" id="update" name="update">Update</button>
+    </div>
+    </fieldset>
+    </form>
 </div>
 {% endblock %}

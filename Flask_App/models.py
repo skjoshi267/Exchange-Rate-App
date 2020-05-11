@@ -18,6 +18,14 @@ class Users(database.Model):
                       index=False,
                       nullable=False)
 
+    def __repr__(self):
+        return '<Users> {}'.format(self.username)
 
-def __repr__(self):
-    return '<User> {}'.format(self.username)
+class ExchangeRate(database.Model):
+    __table_args__ = {'extend_existing':False}
+    from_currency = database.Column(database.String(3),
+                             primary_key=True)
+    to_currency = database.Column(database.String(3),
+                             primary_key=True)                             
+    exchange_rate = database.Column(database.Float)
+    updated_on = database.Column(database.Date)
