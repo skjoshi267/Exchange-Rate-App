@@ -2,7 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField,PasswordField,SubmitField,SelectField,DateField
 from wtforms.validators import DataRequired,Email,ValidationError
 from Flask_App.models import Users
-from datetime import *
+from datetime import date
 
 class LoginForm(FlaskForm):
     username = StringField("Username",validators=[DataRequired()])
@@ -27,7 +27,8 @@ class RegisterForm(FlaskForm):
 
 class ExchangeRateForm(FlaskForm):
     one_curr = ''
-    base_date = ''
+    base_date = date(2000,1,1)
+    date_today = date.today()
     from_curr = SelectField("Base Currency",validators=[DataRequired()],
                                             choices=[('EUR','EUR'),
                                                      ('USD','USD')])
@@ -46,14 +47,15 @@ class ExchangeRateForm(FlaskForm):
         if self.one_curr == to_curr.data:
             raise ValidationError("Base and Derived Currency cannot be same")
     
-    # def validate_baseline_date(self,baseline_date):
-    #     self.base_date = datetime(2000,1,1)
-    #     if baseline_date.data < base_date.data:
-    #         raise ValidationError("Baseline date must be greater than 01/01/2020")
+    def validate_baseline_date(self,baseline_date):
+        if  not (self.base_date < baseline_date.data < self.date_today):
+            raise ValidationError("Base date must be b/w "+str(self.base_date)+" & Today")
+        else:
+            self.base_date = baseline_date.data
     
-    # def validate_end_date(self,end_date):
-    #     if (self.base_date >= end_date.data) or (self.base_date > date.today()):
-    #         raise ValidationError("End date cannot be in the future or less than base date")
+    def validate_end_date(self,end_date):
+        if not (self.base_date <= end_date.data <= self.date_today):
+            raise ValidationError("End date cannot be in the future or less than base date")
 
 
 
